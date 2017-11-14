@@ -1,4 +1,4 @@
-package com.teslacode.service
+package com.teslacode.service.builders
 
 import retrofit2.Retrofit
 

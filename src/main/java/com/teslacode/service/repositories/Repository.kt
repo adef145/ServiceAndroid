@@ -2,10 +2,14 @@ package com.teslacode.service.repositories
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.teslacode.service.PreferencesBuilder
-import com.teslacode.service.RetrofitBuilder
 import com.teslacode.service.api.Api
+import com.teslacode.service.builders.PreferencesBuilder
+import com.teslacode.service.builders.RetrofitBuilder
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by adefruandta on 11/10/17.
@@ -49,5 +53,11 @@ class Repository<A : Api> {
 
     protected fun onCreatePreferences(preferences: SharedPreferences?) {
         this.preferences = preferences
+    }
+
+    protected fun observe(observable: Observable<*>): Observable<*> {
+        return observable
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
     }
 }
