@@ -1,6 +1,5 @@
 package com.teslacode.service.repositories
 
-import android.content.Context
 import android.content.SharedPreferences
 import com.teslacode.service.builders.PreferencesBuilder
 import com.teslacode.service.builders.RetrofitBuilder
@@ -13,17 +12,11 @@ import retrofit2.Retrofit
  * Created by adefruandta on 11/10/17.
  */
 
-open class Repository<A> {
+open class Repository<T> {
 
-    companion object {
-        var context: Context? = null
-    }
-
-    protected var service: A? = null
+    protected var api: T? = null
 
     protected var preferences: SharedPreferences? = null
-
-    protected open var serviceClass: Class<A>? = null
 
     constructor() {
         onCreateRetrofit(RetrofitBuilder.builder)
@@ -36,22 +29,18 @@ open class Repository<A> {
         }
 
         val retrofit = builder.onCreate()
-        onCreateService(retrofit)
+        api = onCreateApi(retrofit)
     }
 
-    protected open fun onCreateService(retrofit: Retrofit?) {
-        if (this.serviceClass == null || retrofit == null) {
-            return
-        }
-
-        this.service = retrofit.create(this.serviceClass)
+    protected open fun onCreateApi(retrofit: Retrofit): T? {
+        return null
     }
 
     protected open fun onCreatePreferences(preferences: SharedPreferences?) {
         this.preferences = preferences
     }
 
-    protected fun <T> observe(observable: Observable<T>): Observable<T> {
+    protected open fun <T> observe(observable: Observable<T>): Observable<T> {
         return observable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
