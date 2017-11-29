@@ -15,3 +15,16 @@ dependencies {
     compile 'com.teslacode.service:service:0.1.1'
 }
 ```
+
+Additional setup in Project Gradle
+```gradle
+allprojects {
+    repositories {
+        ...
+        // For DBFlow
+        maven {
+            url "https://www.jitpack.io"
+        }
+    }
+}
+```
