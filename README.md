@@ -33,18 +33,18 @@ allprojects {
 
 ## How To Use
 First, extends the `RetrofitBuilder` for seteup `baseUrl`
-```java
+```kotlin
 class CustomRetrofitBuilder: RetrofitBuilder {
     override protected var baseUrl: String = "https://api.com/"
 }
 ```
 and then register `CustomRetrofitBuilder` when `Application.onCreate`. And if you want to setup the `Preferences`. Just register in `PreferencesBuilder`
-```java
+```kotlin
 class CustomApplication: Application {
 
     ...
 
-    fun onCreate() {
+    override fun onCreate() {
         ...
         RetrofitBuilder.builder = CustomRetrofitBuilder()
         PreferencesBuilder.preferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -53,7 +53,7 @@ class CustomApplication: Application {
 ```
 
 After that, create your interface for Api. And then extends `Repository` for the logic and override some function.
-```java
+```kotlin
 class CustomRepository: Repository<CustomApi> {
     
     ...
