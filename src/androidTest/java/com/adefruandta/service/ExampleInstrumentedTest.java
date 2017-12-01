@@ -1,4 +1,4 @@
-package com.teslacode.service;
+package com.adefruandta.service;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.teslacode.service.test", appContext.getPackageName());
+        assertEquals("com.adefruandta.service.test", appContext.getPackageName());
     }
 }

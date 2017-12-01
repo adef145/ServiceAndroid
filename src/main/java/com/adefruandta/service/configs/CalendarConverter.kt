@@ -1,4 +1,4 @@
-package com.teslacode.service.configs
+package com.adefruandta.service.configs
 
 import com.raizlabs.android.dbflow.converter.TypeConverter
 import java.util.*

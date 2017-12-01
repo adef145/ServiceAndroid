@@ -7,14 +7,14 @@ We use retrofit and java rx for our base code.
 ```gradle
 repositories {
     maven {
-        url 'https://dl.bintray.com/adef145/teslacode/'
+        url 'https://dl.bintray.com/adef145/maven/'
     }
 }
 
 ...
 
 dependencies {
-    compile 'com.teslacode.service:service:0.1.1'
+    compile 'com.adefruandta.service:service:0.1.1'
 }
 ```
 

@@ -1,8 +1,8 @@
-package com.teslacode.service.repositories
+package com.adefruandta.service.repositories
 
 import android.content.SharedPreferences
-import com.teslacode.service.builders.PreferencesBuilder
-import com.teslacode.service.builders.RetrofitBuilder
+import com.adefruandta.service.builders.PreferencesBuilder
+import com.adefruandta.service.builders.RetrofitBuilder
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

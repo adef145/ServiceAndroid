@@ -1,4 +1,4 @@
-package com.teslacode.service.builders
+package com.adefruandta.service.builders
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
