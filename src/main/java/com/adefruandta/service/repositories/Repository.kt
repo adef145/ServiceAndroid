@@ -19,6 +19,10 @@ open class Repository<T> {
     protected var preferences: SharedPreferences? = null
 
     constructor() {
+        invalidate()
+    }
+
+    fun invalidate() {
         onCreateRetrofit(RetrofitBuilder.builder)
         onCreatePreferences(PreferencesBuilder.preferences)
     }
