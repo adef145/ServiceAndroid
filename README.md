@@ -18,19 +18,6 @@ dependencies {
 }
 ```
 
-Additional setup in Project Gradle
-```gradle
-allprojects {
-    repositories {
-        ...
-        // For DBFlow
-        maven {
-            url "https://www.jitpack.io"
-        }
-    }
-}
-```
-
 ## How To Use
 First, extends the `RetrofitBuilder` for seteup `baseUrl`
 ```kotlin
