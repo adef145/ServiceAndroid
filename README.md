@@ -19,7 +19,7 @@ dependencies {
 ```
 
 ## How To Use
-First, extends the `RetrofitBuilder` for seteup `baseUrl`
+First, extends the `RetrofitBuilder` for setup `baseUrl`
 ```kotlin
 class CustomRetrofitBuilder: RetrofitBuilder {
     override protected var baseUrl: String = "https://api.com/"
