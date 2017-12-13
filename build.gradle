@@ -20,11 +20,6 @@ buildscript {
     }
 }
 
-repositories {
-    maven { url "https://jitpack.io" }
-    google()
-}
-
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
@@ -83,14 +78,6 @@ dependencies {
 
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
-
-    // DBFlow
-    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-rx-kotlinextensions:${dbflow_version}"
-    // compile "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:${dbflow_version}"
 
     // Retrofit
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
