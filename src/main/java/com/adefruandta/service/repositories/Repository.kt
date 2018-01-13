@@ -14,37 +14,44 @@ import retrofit2.Retrofit
 
 open class Repository<T> {
 
-    protected var api: T? = null
+    open var api: T? = null
+        get() {
+            if (field == null) {
+                field = onCreateApi(onCreateRetrofit(onCreateRetrofitBuilder()))
+            }
 
-    protected var preferences: SharedPreferences? = null
-
-    constructor() {
-        invalidate()
-    }
-
-    fun invalidate() {
-        onCreateRetrofit(RetrofitBuilder.builder)
-        onCreatePreferences(PreferencesBuilder.preferences)
-    }
-
-    protected open fun onCreateRetrofit(builder: RetrofitBuilder?) {
-        if (builder == null) {
-            return
+            return field
         }
 
-        val retrofit = builder.onCreate()
-        api = onCreateApi(retrofit)
+    open var preferences: SharedPreferences? = null
+        get() {
+            if (field == null) {
+                field = onCreatePreferences()
+            }
+
+            return field
+        }
+
+    open fun invalidate() {
+        api = null
+        preferences = null
     }
 
-    protected open fun onCreateApi(retrofit: Retrofit): T? {
-        return null
+    open fun onCreateRetrofitBuilder(): RetrofitBuilder? = RetrofitBuilder.builder
+
+    open fun onCreatePreferences(): SharedPreferences? = PreferencesBuilder.preferences
+
+    open fun onCreateRetrofit(builder: RetrofitBuilder?): Retrofit? {
+        if (builder == null) {
+            return null
+        }
+
+        return builder.onCreate()
     }
 
-    protected open fun onCreatePreferences(preferences: SharedPreferences?) {
-        this.preferences = preferences
-    }
+    open fun onCreateApi(retrofit: Retrofit?): T? = null
 
-    protected open fun <T> observe(observable: Observable<T>): Observable<T> {
+    open fun <T> observe(observable: Observable<T>): Observable<T> {
         return observable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
