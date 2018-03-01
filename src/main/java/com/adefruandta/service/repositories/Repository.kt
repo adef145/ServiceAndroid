@@ -54,6 +54,6 @@ open class Repository<T> {
     open fun <T> observe(observable: Observable<T>): Observable<T> {
         return observable
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.newThread())
+                .subscribeOn(Schedulers.io())
     }
 }
