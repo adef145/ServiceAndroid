@@ -1,4 +1,6 @@
 # ServiceAndroid
+[ ![Download](https://api.bintray.com/packages/adef145/maven/service/images/download.svg) ](https://bintray.com/adef145/maven/service/_latestVersion) [![](https://jitpack.io/v/adef145/ServiceAndroid.svg)](https://jitpack.io/#adef145/ServiceAndroid)
+
 Service framework for android
 
 We use retrofit and java rx for our base code.
@@ -9,12 +11,19 @@ repositories {
     maven {
         url 'https://dl.bintray.com/adef145/maven/'
     }
+    
+    maven {
+        url 'https://jitpack.io'
+    }
 }
 
 ...
 
 dependencies {
     compile 'com.adefruandta.service:service:0.6.0'
+    
+    // for jitpack
+    compile 'com.github.adef145:ServiceAndroid:0.6.0'
 }
 ```
 
