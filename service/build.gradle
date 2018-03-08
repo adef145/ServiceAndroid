@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'service'
+
+    publishedGroupId = 'com.adefruandta.service'
+    libraryName = 'Service'
+    artifact = 'service'
+
+    libraryDescription = 'Service framework for android'
+
+    siteUrl = 'https://github.com/adef145/ServiceAndroid'
+    gitUrl = 'https://github.com/adef145/ServiceAndroid.git'
+
+    libraryVersion = '0.6.0'
+
+    developerId = 'adef145'
+    developerName = 'Ade Fruandta'
+    developerEmail = 'ade.fruandta@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}"
+
+    // Java RX
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    // Because RxAndroid releases are few and far between, it is recommended you also
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.6'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.2'
+}
+
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/adef145/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/adef145/JCenter/master/bintrayv1.gradle'

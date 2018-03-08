@@ -14,7 +14,7 @@ repositories {
 ...
 
 dependencies {
-    compile 'com.adefruandta.service:service:0.5.1'
+    compile 'com.adefruandta.service:service:0.6.0'
 }
 ```
 

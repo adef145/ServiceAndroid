@@ -1,4 +1,4 @@
-package com.adefruandta.service.others
+package com.adefruandta.service.extentions
 
 import android.content.SharedPreferences
 
